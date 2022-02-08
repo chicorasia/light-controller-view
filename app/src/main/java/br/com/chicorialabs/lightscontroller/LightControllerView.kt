@@ -28,8 +28,8 @@ class LightControllerView @JvmOverloads constructor(
      */
     private var barWidth = 0.0f
     private var barHeight = 0.0f
-    private val LABEL_X_OFFSET = 20
-    private val PADDING_OFFSET = 27
+    private var LABEL_X_OFFSET = 20
+    private var PADDING_OFFSET = 27
     private val pointPosition = PointF(0.0f, 0.0f)
     private var controllerSetting = ControllerSetting.OFF
 
@@ -58,6 +58,9 @@ class LightControllerView @JvmOverloads constructor(
         super.onSizeChanged(w, h, oldw, oldh)
         barWidth = (w / 2).toFloat()
         barHeight = h.toFloat()
+        paint.textSize = (w / 10).toFloat()
+        PADDING_OFFSET = w / 20
+        LABEL_X_OFFSET = PADDING_OFFSET * 3 / 4
     }
 
     /**
